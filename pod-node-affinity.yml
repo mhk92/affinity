@@ -13,11 +13,12 @@ spec:
     metadata:
       labels:
         app: test
-    containers:
-      - name: nginx
-        images: nginx:stable-alpine-perl
-        ports:
-          - name: nginx-port
-            protocol: TCP
-            containerPort: 80
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:stable-alpine-perl
+          ports:
+            - name: nginx-port
+              protocol: TCP
+              containerPort: 80
 
