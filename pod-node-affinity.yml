@@ -21,7 +21,7 @@ spec:
               - matchExpressions:
                 - key: rank
                   operator: Lt
-                  values: ["2"]
+                  values: ["5"]
       containers:
         - name: nginx
           image: nginx:stable-alpine-perl
