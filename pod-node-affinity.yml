@@ -5,7 +5,7 @@ metadata:
   labels:
     app: test-dep
 spec:
-  replicas: 4
+  replicas: 7
   selector:
     matchLabels:
       app: test
@@ -14,6 +14,14 @@ spec:
       labels:
         app: test
     spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                - key: rank
+                  operator: Lt
+                  values: ["2"]
       containers:
         - name: nginx
           image: nginx:stable-alpine-perl
