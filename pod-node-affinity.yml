@@ -10,4 +10,14 @@ spec:
     matchLabels:
       app: test
   template:
+    metadata:
+      labels:
+        app: test
+    containers:
+      - name: nginx
+        images: nginx:stable-alpine-perl
+        ports:
+          - name: nginx-port
+            protocol: TCP
+            containerPort: 80
 
