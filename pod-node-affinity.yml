@@ -15,13 +15,19 @@ spec:
         app: test
     spec:
       affinity:
+        podAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchLabels:
+                  app: test
+              topologyKey: rank
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
               - matchExpressions:
                 - key: rank
-                  operator: Lt
-                  values: ["5"]
+                  operator: In
+                  values: ["3"]
       containers:
         - name: nginx
           image: nginx:stable-alpine-perl
